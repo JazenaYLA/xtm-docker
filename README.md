@@ -66,12 +66,6 @@ cd xtm-docker
 Create a `.env` file with the required configuration:
 
 ```bash
-# Project
-COMPOSE_PROJECT_NAME=xtm
-
-# Elasticsearch
-ELASTIC_MEMORY_SIZE=4G
-
 # PostgreSQL
 POSTGRES_USER=openaev
 POSTGRES_PASSWORD=<generate-strong-password>
@@ -102,10 +96,7 @@ OPENAEV_ADMIN_PASSWORD=<generate-strong-password>
 OPENAEV_ADMIN_TOKEN=<generate-uuid-v4>
 OPENAEV_HEALTHCHECK_KEY=<generate-uuid-v4>
 
-# XTM Composer
-XTM_COMPOSER_ID=<generate-uuid-v4>
-
-# SMTP (optional)
+# SMTP (mandatory)
 SMTP_HOST=localhost
 SMTP_PORT=25
 SMTP_USERNAME=
@@ -123,29 +114,6 @@ IMAP_PASSWORD=
 IMAP_AUTH=true
 IMAP_SSL_ENABLE=true
 IMAP_STARTTLS_ENABLE=false
-
-# OpenCTI Connectors (generate unique UUIDs for each)
-CONNECTOR_EXPORT_FILE_STIX_ID=<generate-uuid-v4>
-CONNECTOR_EXPORT_FILE_CSV_ID=<generate-uuid-v4>
-CONNECTOR_EXPORT_FILE_TXT_ID=<generate-uuid-v4>
-CONNECTOR_IMPORT_FILE_STIX_ID=<generate-uuid-v4>
-CONNECTOR_IMPORT_DOCUMENT_ID=<generate-uuid-v4>
-CONNECTOR_IMPORT_FILE_YARA_ID=<generate-uuid-v4>
-CONNECTOR_ANALYSIS_ID=<generate-uuid-v4>
-CONNECTOR_IMPORT_EXTERNAL_REFERENCE_ID=<generate-uuid-v4>
-CONNECTOR_OPENCTI_ID=<generate-uuid-v4>
-CONNECTOR_MITRE_ID=<generate-uuid-v4>
-
-# OpenAEV Collectors (generate unique UUIDs for each)
-COLLECTOR_MITRE_ATTACK_ID=<generate-uuid-v4>
-COLLECTOR_OPENAEV_ID=<generate-uuid-v4>
-COLLECTOR_ATOMIC_RED_TEAM_ID=<generate-uuid-v4>
-COLLECTOR_NVD_NIST_CVE_ID=<generate-uuid-v4>
-COLLECTOR_NVD_NIST_CVE_API_KEY=
-
-# OpenAEV Injectors (generate unique UUIDs for each)
-INJECTOR_NMAP_ID=<generate-uuid-v4>
-INJECTOR_NUCLEI_ID=<generate-uuid-v4>
 ```
 
 > **Tip:** Generate UUIDs using `uuidgen` or online tools like [uuidgenerator.net](https://www.uuidgenerator.net/)
@@ -222,7 +190,7 @@ worker:
 
 ### External Access
 
-To expose the platforms externally, update the environment variables:
+To expose the platforms externally (behind reverse-proxy for instance), update the environment variables:
 
 ```bash
 OPENCTI_EXTERNAL_SCHEME=https
