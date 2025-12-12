@@ -63,7 +63,7 @@ cd xtm-docker
 
 ### 2. Create environment file
 
-Create a `.env` file with the required configuration:
+Create a `.env` file with the required configuration. An example is available in [.env.sample](.env.sample).
 
 ```bash
 # PostgreSQL
