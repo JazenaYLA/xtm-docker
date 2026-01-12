@@ -427,7 +427,7 @@ services:
   ###########################
 
   collector-mitre-attack:
-    image: openaev/collector-mitre-attack:2.0.6
+    image: openaev/collector-mitre-attack:latest
     environment:
       - OPENAEV_URL=http://openaev:8080
       - OPENAEV_TOKEN=${OPENAEV_ADMIN_TOKEN}
